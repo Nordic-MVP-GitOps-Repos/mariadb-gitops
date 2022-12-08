@@ -63,7 +63,8 @@ spec:
         - name: mariadb-data
           mountPath: /var/lib/mysql/data
         - name: ssl-cnf
-          mountPath: /etc/my.cnf.d/
+          mountPath: /etc/my.cnf.d/ssl.cnf
+          subPath: ssl.cnf
         imagePullPolicy: IfNotPresent
       volumes:
       - name: mariadb-data
