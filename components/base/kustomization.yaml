@@ -6,3 +6,5 @@ resources:
 - service.yaml
 - pvc.yaml
 - deployment.yaml
+- ss-issuer.yaml
+- cert.yaml
