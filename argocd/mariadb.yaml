@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mariadb
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Nordic-MVP-GitOps-Repos/mariadb-gitops.git
+    targetRevision: HEAD
+    path: 'components/base'
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mariadb
+  syncPolicy:
+    automated:
+      selfHeal: true
