@@ -2,13 +2,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name: mariadb
-  annotations:
-    template.openshift.io/expose-uri: mysql://{.spec.clusterIP}:{.spec.ports[?(.name=="mariadb")].port}
 spec:
   type: NodePort
   ports:
   - name: mariadb
     port: 3306
-    nodePort: 30017
+    nodePort: 31017
   selector:
     name: mariadb
