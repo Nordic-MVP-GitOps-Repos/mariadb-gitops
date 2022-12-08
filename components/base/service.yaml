@@ -9,4 +9,4 @@ spec:
     port: 3306
     nodePort: 31017
   selector:
-    name: mariadb
+    app: mariadb
