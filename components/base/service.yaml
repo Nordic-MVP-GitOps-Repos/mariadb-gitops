@@ -5,6 +5,7 @@ metadata:
   annotations:
     template.openshift.io/expose-uri: mysql://{.spec.clusterIP}:{.spec.ports[?(.name=="mariadb")].port}
 spec:
+  type: NodePort
   ports:
   - name: mariadb
     port: 3306
