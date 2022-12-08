@@ -65,6 +65,9 @@ spec:
         - name: ssl-cnf
           mountPath: /etc/my.cnf.d/ssl.cnf
           subPath: ssl.cnf
+        - name: certs
+          mountPath: /certs
+          readOnly: true
         imagePullPolicy: IfNotPresent
       volumes:
       - name: mariadb-data
@@ -73,3 +76,6 @@ spec:
       - name: ssl-cnf
         configMap:
           name: ssl-config
+      - name: certs
+        secret:
+          secretName: mariadb-cert
