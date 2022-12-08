@@ -39,31 +39,36 @@ spec:
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
-              name: "mariadb"
+              name: mariadb
               key: database-user
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: "mariadb"
+              name: mariadb
               key: database-password
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: "mariadb"
+              name: mariadb
               key: database-root-password
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
-              name: "mariadb"
+              name: mariadb
               key: database-name
         resources:
           limits:
             memory: 1G
         volumeMounts:
-        - name: "mariadb-data"
-          mountPath: "/var/lib/mysql/data"
+        - name: mariadb-data
+          mountPath: /var/lib/mysql/data
+        - name: ssl-cnf
+          mountPath: /etc/my.cnf.d/
         imagePullPolicy: IfNotPresent
       volumes:
-      - name: "mariadb-data"
+      - name: mariadb-data
         persistentVolumeClaim:
-          claimName: "mariadb"
+          claimName: mariadb
+      - name: ssl-cnf
+        configMap:
+          name: ssl-config
