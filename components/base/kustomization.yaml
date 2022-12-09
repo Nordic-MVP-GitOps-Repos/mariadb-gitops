@@ -8,3 +8,4 @@ resources:
 - deployment.yaml
 - ss-issuer.yaml
 - cert.yaml
+- cm-ssl.yaml
