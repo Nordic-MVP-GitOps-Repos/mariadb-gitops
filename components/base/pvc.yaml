@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: mariadb
 spec:
-  storageClassName: ibmc-block-gold
+  #storageClassName: ibmc-block-gold
   accessModes:
   - ReadWriteOnce
   resources:
