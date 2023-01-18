@@ -25,7 +25,7 @@ spec:
             - "/bin/sh"
             - "-i"
             - "-c"
-            - MYSQL_PWD="$MYSQL_PASSWORD" mysqladmin -u $MYSQL_USER ping
+            - MYSQL_PWD="$MYSQL_PASSWORD" && mysqladmin -u $MYSQL_USER ping
         livenessProbe:
           timeoutSeconds: 1
           initialDelaySeconds: 30
@@ -34,7 +34,7 @@ spec:
             - "/bin/sh"
             - "-i"
             - "-c"
-            - MYSQL_PWD="$MYSQL_PASSWORD" mysqladmin -u $MYSQL_USER ping
+            - MYSQL_PWD="$MYSQL_PASSWORD" && mysqladmin -u $MYSQL_USER ping
         env:
         - name: MYSQL_USER
           valueFrom:
