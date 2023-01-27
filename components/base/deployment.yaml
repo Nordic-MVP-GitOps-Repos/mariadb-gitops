@@ -7,13 +7,13 @@ spec:
   selector:
     matchLabels:
       app: mariadb
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
         app: mariadb
     spec: 
-      strategy:
-        type: Recreate
       containers:
       - name: mariadb
         image: registry.redhat.io/rhel8/mariadb-105@sha256:c655a1bcaddf84fb1aff059cb320bb0d46add57b1480f716ebb5ca57d3aafda4
